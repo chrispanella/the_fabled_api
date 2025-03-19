@@ -18,6 +18,11 @@ app = FastAPI(
     version="1.0.0"
 )
 
+# Add health check endpoint
+@app.get("/health")
+async def health_check():
+    return {"status": "healthy"}
+
 class GameInfo(BaseModel):
     name: str
     version: str
